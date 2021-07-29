@@ -32,6 +32,20 @@
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 90%;
+
+    &-title {
+        font-size: 38px;
+        letter-spacing: -0.9px;
+    }
+
+    &-subtitle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0;
+        font-size: 14px;
+        color: $subtitle-color;
+    }
 }
 
 .card-pricing {
@@ -45,6 +59,36 @@
         border-bottom: none;
     }
 
+    &.active {
+        transform: scale(1.01);
+        border-radius: 4px;
+        border: 3px solid $card-pricing-active-border;
+        z-index: 2;
+
+        .badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: $badge-bg-color;
+            color: $badge-color;
+            font-size: 14px;
+            text-align: center;
+            padding: 5px;
+            font-weight: 600;
+
+            &::before {
+                content: "\2764";
+                color: red;
+                margin-right: 5px;
+            }
+        }
+
+        .card-pricing-btn {
+            @include btn-common($btn-pricing-color, #fff, transparent);
+        }
+    }
+
     &-title {
         font-size: 1.65rem;
         font-weight: 700;
@@ -53,7 +97,7 @@
     }
 
     &-subtitle {
-        color: #898e98;
+        color: $subtitle-color;
         & span {
             font-weight: 600;
         }
@@ -70,11 +114,11 @@
     }
 
     &-btn {
-        @include btn-common(transparent, #675ce6, #c3d3f4);
+        @include btn-common(transparent, $btn-pricing-color, $btn-pricing-border);
     }
 
     &-footer {
-        .adriana {
+        .benefits {
             margin-top: 30px;
             font-weight: 500;
 
@@ -103,9 +147,9 @@
                     content: "\2713";
                     position: absolute;
                     margin-left: -25px;
-                    background-color: #e4f8ed;
+                    background-color: $list-bullet-bg;
                     border-radius: 50%;
-                    color: #34b588;
+                    color: $list-bullet-color;
                     font-size: 12px;
                     line-height: 20px;
                     width: 20px;
