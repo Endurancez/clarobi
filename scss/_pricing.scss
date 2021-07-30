@@ -1,4 +1,5 @@
 @import "./colors";
+@import "./responsive";
 
 @mixin btn-common($bg, $color, $borderColor) {
     display: inline-flex;
@@ -36,6 +37,10 @@
     &-title {
         font-size: 38px;
         letter-spacing: -0.9px;
+
+        @include desktop {
+            font-size: 3.75rem;
+        }
     }
 
     &-subtitle {
@@ -45,6 +50,29 @@
         padding: 15px 0;
         font-size: 14px;
         color: $subtitle-color;
+
+        @include tablet {
+            justify-content: unset;
+        }
+
+        &-info {
+            display: flex;
+            align-items: center;
+
+            @include tablet {
+                margin-right: 30px;
+            }
+
+            &::before {
+                // display: flex;
+                content: " ";
+                background-image: url("../assets/images/star.svg");
+                background-size: 14px 14px;
+                height: 14px;
+                width: 14px;
+                margin-right: 5px;
+            }
+        }
     }
 }
 
@@ -55,6 +83,18 @@
     border-bottom: 1px solid $card-pricing-border;
     width: 100%;
 
+    @include tablet {
+        @include flexContainer(row, space-around, center, wrap);
+    }
+
+    @include desktop {
+        @include flexContainer(column, initial, center, wrap);
+
+        &:first-child {
+            display: none;
+        }
+    }
+
     &:last-child {
         border-bottom: none;
     }
@@ -64,6 +104,11 @@
         border-radius: 4px;
         border: 3px solid $card-pricing-active-border;
         z-index: 2;
+        overflow: hidden;
+
+        @include desktop {
+            transform: scale(1.03);
+        }
 
         .badge {
             position: absolute;
@@ -82,10 +127,37 @@
                 color: red;
                 margin-right: 5px;
             }
+
+            @include tablet {
+                top: unset;
+                left: -49%;
+                transform: rotate(-90deg);
+            }
+
+            @include desktop {
+                top: 0;
+                left: 0;
+                transform: unset;
+            }
         }
 
         .card-pricing-btn {
             @include btn-common($btn-pricing-color, #fff, transparent);
+        }
+    }
+
+    &-header {
+        @include tablet {
+            flex: 1;
+            order: 1;
+            padding-left: 15px;
+        }
+
+        @include desktop {
+            flex: none;
+            order: unset;
+            padding-left: 0;
+            text-align: center;
         }
     }
 
@@ -100,6 +172,20 @@
         color: $subtitle-color;
         & span {
             font-weight: 600;
+        }
+    }
+
+    &-body {
+        @include tablet {
+            flex: 1;
+            order: 3;
+            text-align: center;
+        }
+
+        @include desktop {
+            flex: none;
+            order: unset;
+            width: 100%;
         }
     }
 
@@ -118,9 +204,30 @@
     }
 
     &-footer {
+        @include tablet {
+            flex: 1;
+            order: 2;
+            padding: 0 15px;
+        }
+
+        @include desktop {
+            flex: none;
+            order: unset;
+            padding: 0;
+            width: 100%;
+        }
+
         .benefits {
             margin-top: 30px;
             font-weight: 500;
+
+            @include tablet {
+                margin-top: 0;
+            }
+
+            @include tablet {
+                margin-top: 30px;
+            }
 
             &::after {
                 // height: 1px;
@@ -156,7 +263,45 @@
                     display: inline-block;
                     text-align: center;
                 }
+
+                span {
+                    color: $subtitle-color;
+                    font-weight: 300;
+                }
             }
+        }
+    }
+}
+
+.solo-bottom {
+    position: relative;
+    background-color: #fff;
+    padding: 35px 25px 25px;
+    border-bottom: 1px solid $card-pricing-border;
+    width: 100%;
+    margin-top: 40px;
+    @include flexContainer(row, space-around, center, wrap);
+
+    .card-pricing-header {
+        flex: 1;
+        order: 1;
+        padding-left: 15px;
+        text-align: left;
+    }
+
+    .card-pricing-body {
+        flex: 1;
+        order: 3;
+        text-align: center;
+    }
+
+    .card-pricing-footer {
+        flex: 2;
+        order: 2;
+        padding: 0 15px;
+
+        li:first-child {
+            margin-top: 0;
         }
     }
 }

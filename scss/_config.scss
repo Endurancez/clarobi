@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&display=swap");
+@import "./responsive";
 
-@mixin flexContainer($direction, $justify) {
+@mixin flexContainer($direction, $justify, $align, $wrap) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
-    align-items: center;
-    flex-wrap: wrap;
+    align-items: $align;
+    flex-wrap: $wrap;
 }
 
 * {
@@ -19,8 +20,16 @@
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+
+    @include desktop {
+        padding: 0 64px;
+    }
 }
 
 .row {
-    @include flexContainer(column, flex-start);
+    @include flexContainer(column, flex-start, center, wrap);
+
+    @include desktop {
+        @include flexContainer(row, flex-start, unset, nowrap);
+    }
 }
