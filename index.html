@@ -5,6 +5,8 @@
     Stop: 22:30
     Start 15:30
     Finish 16:30
+    Start 14:30
+    Finish 15:50
     I will let you know when it's ready
  -->
 <!DOCTYPE html>
@@ -24,10 +26,21 @@
         <div class="container">
           <div class="pricing-header">
             <div class="pricing-title">Pricing plans</div>
-            <div class="pricing-subtitle">
-              <div class="pricing-subtitle-info">14-Day Free Trial</div>
-              <div class="pricing-subtitle-info">Easy setup</div>
-              <div class="pricing-subtitle-info">50x avg ROI</div>
+            <div class="pricing-subheader">
+              <div class="pricing-subtitle">
+                <div class="pricing-subtitle-info">14-Day Free Trial</div>
+                <div class="pricing-subtitle-info">Easy setup</div>
+                <div class="pricing-subtitle-info">50x avg ROI</div>
+              </div>
+              <div class="pricing-toggle-container">
+                Monthly
+                <label class="switch">
+                  <input id="toggle-pricing" type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
+                <span class="color-grey">Annual&nbsp;</span>
+                <span class="color-green">(-20% OFF)</span>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -63,7 +76,13 @@
                 </div>
               </div>
               <div class="card-pricing-body">
-                <div class="card-pricing-price"><span>$39</span> /mo</div>
+                <div class="card-pricing-price">
+                  <span
+                    >$
+                    <span id="bright-price">39</span>
+                  </span>
+                  /mo
+                </div>
                 <button type="button" class="card-pricing-btn">
                   Start free trial
                 </button>
@@ -87,7 +106,13 @@
                 </div>
               </div>
               <div class="card-pricing-body">
-                <div class="card-pricing-price"><span>$99</span> /mo</div>
+                <div class="card-pricing-price">
+                  <span
+                    >$
+                    <span id="smart-price">99</span>
+                  </span>
+                  /mo
+                </div>
                 <button type="button" class="card-pricing-btn">
                   Start free trial
                 </button>
@@ -119,7 +144,9 @@
                 </div>
               </div>
               <div class="card-pricing-body">
-                <div class="card-pricing-price"><span>$149</span> /mo</div>
+                <div class="card-pricing-price">
+                  <span> $ <span id="wise-price">149</span> </span> /mo
+                </div>
                 <button type="button" class="card-pricing-btn">
                   Start free trial
                 </button>
@@ -150,7 +177,11 @@
                 </div>
               </div>
               <div class="card-pricing-body">
-                <div class="card-pricing-price">From <span>$299</span> /mo</div>
+                <div class="card-pricing-price">
+                  From <span>$ 
+                    <span id="enterprise-price">299</span>
+                  </span> /mo
+                </div>
                 <button type="button" class="card-pricing-btn">
                   Start free trial
                 </button>
@@ -197,5 +228,7 @@
         </div>
       </section>
     </main>
+
+    <script src="./js/index.js"></script>
   </body>
 </html>
